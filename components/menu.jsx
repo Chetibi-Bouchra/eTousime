@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const Menu = () => {
   const router = useRouter();
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("Kamyl");
 
-  const handleClick = () => {
-    router.push('/login');
+  const handleLogin = () => {
+    if (loggedIn) {
+      // Perform logout actions
+      setLoggedIn(false);
+      setUsername("");
+    } else {
+      // Perform login actions (e.g., show login modal)
+      router.push("/login");
+    }
   };
 
   return (
@@ -40,8 +49,15 @@ const Menu = () => {
           </Link>
         </li>
       </ul>
+      
       <div className={styles.loginContainer}>
-        <button onClick={handleClick} className={styles.loginButton}>Log in</button>
+        {loggedIn ? (
+          <span className={styles.username}>{username}</span>
+        ) : (
+          <button onClick={handleLogin} className={styles.loginButton}>
+            Log in
+          </button>
+        )}
       </div>
     </nav>
   );

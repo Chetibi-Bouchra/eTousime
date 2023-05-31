@@ -95,7 +95,7 @@ const SignUp = () => {
     axios
       .post(`${API_URL}/api1/mail_verification`, confirmationData)
       .then(() => {
-        //router.push("/login");
+        router.push("/home");
         console.log("API request sent successfully");
       })
       .catch((error) => {
