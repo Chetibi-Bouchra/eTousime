@@ -13,30 +13,30 @@ const Menu = () => {
   return (
     <nav className={styles.menu}>
       <div className={styles.logoContainer}>
-        <Link href="/">
+        <Link href="/home">
           <span className={styles.logo}>TA7WISSA</span>
         </Link>
       </div>
 
       <ul className={styles.menuList}>
         <li className={styles.menuItem}>
-          <Link href="/">
-            <span>Home</span>
+          <Link href="/home">
+            <span>Explore</span>
           </Link>
         </li>
         <li className={styles.menuItem}>
           <Link href="/">
-            <span>About</span>
+            <span>Destinations</span>
           </Link>
         </li>
         <li className={styles.menuItem}>
-          <Link href="/">
-            <span>Services</span>
+          <Link href="/map">
+            <span>Interactive map</span>
           </Link>
         </li>
         <li className={styles.menuItem}>
-          <Link href="/">
-            <span>Contact</span>
+          <Link href="/itineraires">
+            <span>Itineraries</span>
           </Link>
         </li>
       </ul>
