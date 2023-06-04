@@ -1,15 +1,10 @@
 import React from "react";
 import styles from "../styles/card.module.css";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
-const Card = ({ id, title, description, imageUrl, adresse, numtel }) => {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push(`/agences/${id}`);
-  };
+const Card = ({ title, description, imageUrl, adresse, numtel }) => {
   return (
-    <div className={styles.card} onClick={handleClick}>
+    <div className={styles.card}>
       <div className={styles.imageContainer}>
         <Image src={imageUrl} alt={title} width={300} height={200} />
       </div>

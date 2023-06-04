@@ -48,12 +48,12 @@ const Footer = () => {
       </div>
       <div className={styles.credits}>
       <section className={styles.right}>
-        <h2>© 2022 DigiCraft | All rights reserved</h2>
+        <h2>© 2023 Ta7wissa | All rights reserved</h2>
         
       </section>
 
       <section className={styles.creation}>
-        <h2>Created with love by islam</h2>
+        <h2>Design created with love by islam</h2>
         
       </section>
       </div>

@@ -7,6 +7,7 @@ import styles from "../styles/styles.module.css";
 const SignUpPage = () => {
 
   return (
+    
     <div className={styles.container}>
       <SignUp></SignUp>
       <div className={styles.rightPane}>

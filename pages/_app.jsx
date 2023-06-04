@@ -1,7 +1,8 @@
-import React from 'react';
-import App from 'next/app';
-import Head from 'next/head';
-import Menu from '@/components/menu';
+import React from "react";
+import App from "next/app";
+import Head from "next/head";
+import Menu from "@/components/menu";
+import AuthProvider from "@/components/AuthContext";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,10 +12,16 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <link href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css" rel="stylesheet" />
+        <link
+          href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css"
+          rel="stylesheet"
+        />
       </Head>
-      <Menu />
-      <Component {...pageProps} />
+
+      <AuthProvider>
+        <Menu />
+        <Component {...pageProps} />
+      </AuthProvider>
     </>
   );
 }

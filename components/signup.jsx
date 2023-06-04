@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RoundedInput from "./roundedInput";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/styles.module.css";
 import { useRouter } from "next/router";
+import { AuthContext } from "./AuthContext";
 
 const SignUp = () => {
   const [phoneValue, setPhoneValue] = useState("");
@@ -21,6 +22,7 @@ const SignUp = () => {
   const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
   const [isCodeEmpty, setIsCodeEmpty] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const { loggedIn, login } = useContext(AuthContext);
   const router = useRouter();
 
   const handleEmailChange = (event) => {
@@ -95,6 +97,7 @@ const SignUp = () => {
     axios
       .post(`${API_URL}/api1/mail_verification`, confirmationData)
       .then(() => {
+        login(emailValue); // Set loggedIn to true and pass the username
         router.push("/home");
         console.log("API request sent successfully");
       })

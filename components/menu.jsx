@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { AuthContext } from "./AuthContext";
 
 const Menu = () => {
   const router = useRouter();
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("Kamyl");
+  const { loggedIn, userName, login } = useContext(AuthContext);
 
   const handleLogin = () => {
     if (loggedIn) {
       // Perform logout actions
-      setLoggedIn(false);
-      setUsername("");
+      login(false); // Set loggedIn to false
+      router.push("/"); // Redirect to home page
     } else {
       // Perform login actions (e.g., show login modal)
       router.push("/login");
@@ -49,10 +49,10 @@ const Menu = () => {
           </Link>
         </li>
       </ul>
-      
+
       <div className={styles.loginContainer}>
         {loggedIn ? (
-          <span className={styles.username}>{username}</span>
+          <span className={styles.username}>{userName}</span>
         ) : (
           <button onClick={handleLogin} className={styles.loginButton}>
             Log in
