@@ -2,10 +2,20 @@ import React from "react";
 import styles from "../styles/card.module.css";
 import Image from "next/image";
 
-const ItenaryCard = ({ title, debut, fin, description, numtel }) => {
+const ItenaryCard = ({ title, id, debut, fin, description, numtel }) => {
   const handleClick = () => {
-    //Redirect
-    console.log("Button clicked!");
+    axios
+      .get("/api2/checkout_session", {
+        params: {
+          is: id,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (

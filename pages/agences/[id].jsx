@@ -121,6 +121,7 @@ const AgencesPage = () => {
         itinaires.map((card, index) => (
           <ItenaryCard
             key={index}
+            id= {card.id_circuit}
             title={card.nom}
             debut={card.d_but}
             fin={card.fin}
