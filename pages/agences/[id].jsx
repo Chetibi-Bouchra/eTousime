@@ -117,7 +117,6 @@ const AgencesPage = () => {
           />
         ))
       ) : (
-        // Render the sample data if cardsData is empty
         itinaires.map((card, index) => (
           <ItenaryCard
             key={index}

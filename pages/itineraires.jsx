@@ -65,7 +65,7 @@ const ItinerairesPage = () => {
 
   return (
     <div className={styles.cardView}>
-      {cards.map((card, index) => (
+      {cardsData.map((card, index) => (
         <Card
           key={index}
           id={card.id_agence}
