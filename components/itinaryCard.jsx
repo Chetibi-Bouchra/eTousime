@@ -1,13 +1,17 @@
 import React from "react";
 import styles from "../styles/card.module.css";
 import Image from "next/image";
+import { AuthContext } from "./AuthContext";
 
 const ItenaryCard = ({ title, id, debut, fin, description, numtel }) => {
+  const { loggedIn, userName, login } = useContext(AuthContext);
+
   const handleClick = () => {
     axios
       .get("/api2/checkout_session", {
         params: {
-          is: id,
+          id_circuit: id,
+          email_utilisateur: userName,
         },
       })
       .then((response) => {
