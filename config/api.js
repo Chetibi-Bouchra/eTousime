@@ -1,3 +1,3 @@
-const API_URL = 'https://fc5e-105-101-213-45.ngrok-free.app';
-const PUBLIC_URL = 'https://fc5e-105-101-213-45.ngrok-free.app/';
+const API_URL = 'http://localhost:80';
+const PUBLIC_URL = 'http://localhost:80/';
 module.exports = { API_URL, PUBLIC_URL };

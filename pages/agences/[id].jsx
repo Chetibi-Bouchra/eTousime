@@ -18,7 +18,7 @@ const AgencesPage = () => {
     try {
       // Replace the axios request URL with your actual API endpoint
       const response = await axios.get(
-        `${API_URL}/agences/${id}`
+        `${API_URL}/api3/circuitsByAgence?id_agence=${id}`
       );
       setCardsData(response.data);
     } catch (error) {
